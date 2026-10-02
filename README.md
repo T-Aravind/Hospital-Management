@@ -6,6 +6,7 @@ An enterprise-grade healthcare operations and clinical intelligence analytics sy
 
 ## 📌 Table of Contents
 - [Executive Overview](#-executive-overview)
+- [🌐 Live Web Dashboard & Full-Stack Application](#-live-web-dashboard--full-stack-web-application)
 - [Key Features & Capabilities](#-key-features--capabilities)
 - [System Architecture](#-system-architecture)
 - [Entity-Relationship Diagram](#-entity-relationship-diagram)
@@ -38,6 +39,122 @@ The **Hospital Operations Intelligence Dashboard** models an enterprise hospital
 - **15,000 Admission & Triage Events** (2024–2025)
 - **15,000 Clinical Treatments & Surgeries**
 - **15,000 Billing & Insurance Transactions**
+
+---
+
+## 🌐 Live Web Dashboard & Full-Stack Web Application
+
+In addition to Power BI reports, this repository includes a production-grade, full-stack **Hospital Operations Intelligence Web Application** built with **FastAPI**, **Pandas**, **React (Vite)**, and **Tailwind CSS**.
+
+### 🌟 Web App Features & Analytics Modules
+1. **Executive Overview Dashboard (`/api/overview`):**
+   - High-level KPIs: Total Patients (15k), Admissions (15k), Active Doctors (80), Bed Capacity (300), Occupancy Rate (78.4%), Total Revenue (₹47.76 Cr), ALOS (3.2d), Recovery Rate (70.2%).
+   - Interactive monthly admission and revenue trajectory area charts.
+   - Specialty volume breakdown, bed type allocation, and live recent admissions feed.
+2. **Patient Demographics & Catchment (`/api/patients`):**
+   - 10-year age cohort pyramids, gender parity distribution, and blood group matching profiles.
+   - Geographic origin leaderboard across 15 Tamil Nadu cities (Chennai, Coimbatore, Madurai, Trichy, etc.).
+   - Paginated, searchable patient master directory with sorting and CSV export.
+3. **Admissions & Emergency Triage (`/api/admissions`):**
+   - Channel breakdown (Emergency 25%, Inpatient 45%, Outpatient 30%).
+   - Length of Stay (ALOS) distribution buckets and 30-day post-discharge readmission tracking.
+   - Comprehensive admissions table with filters for admission type, department, and readmission status.
+4. **Bed Capacity & Floor Management (`/api/beds`):**
+   - Real-time ward occupancy, ICU allocation, and bed category inventory.
+   - **Interactive Ward Floor Plan Grid:** Visual floor map for Ward A–H, Emergency, and ICU with color-coded live bed status (Occupied, Available, Cleaning/Maintenance).
+   - Bed master ledger with ward and status filters.
+5. **Doctor Caseloads & Productivity (`/api/doctors`):**
+   - Top 10 clinical revenue leaders and surgical caseload rankings.
+   - Department consultant counts, experience vs revenue scatter analysis, and doctor directory.
+6. **Clinical Outcomes & Procedures (`/api/treatments`):**
+   - Outcome distribution (Recovered 70%, Improved 20%, Referred 7%, Deceased 3%).
+   - Top 10 procedures, surgical vs non-surgical clinical efficacy, and treatment registry.
+7. **Revenue Cycle & Financial Intelligence (`/api/billing`):**
+   - Incurred tariff cost breakdown (Treatment Tariffs, Pharmacy/Medicines, Room Charges).
+   - Insurance co-payment analysis (65% Insured at 20% co-pay vs 35% Self-Pay at 100%).
+   - Monthly billing realization trends and claims ledger.
+
+### 🛠 Web Technology Stack
+- **Frontend:** React 18, Vite 6, Tailwind CSS 3, Recharts 2, Lucide Icons
+- **Backend:** Python 3.10+ / 3.13, FastAPI, Pandas, Uvicorn, Pydantic
+- **Data Engine:** Initially uses high-performance in-memory Pandas caching over `data/*.csv`, with built-in environment variable support (`USE_MYSQL=true`) to switch to MySQL.
+- **Containerization & Deployment:** Multi-stage Dockerfile optimized for Hugging Face Spaces (Port 7860) and cloud containers.
+
+### 🚀 Running the Web Application Locally
+
+#### Prerequisites
+- Python 3.10+
+- Node.js 18+ and npm
+
+#### 1. Start the Backend API (FastAPI)
+```bash
+# From project root
+pip install -r backend/requirements.txt
+python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
+```
+- **Backend API Base:** `http://127.0.0.1:8000`
+- **Interactive Swagger Docs:** `http://127.0.0.1:8000/docs`
+- **Health Check:** `http://127.0.0.1:8000/api/health`
+
+#### 2. Start the Frontend (Development Mode)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+- **Frontend Dev URL:** `http://localhost:5173` (Proxies API calls to `http://localhost:8000`)
+
+#### 3. Build & Run Unified Production App (Frontend + Backend on Port 8000)
+```bash
+# Build the React frontend
+cd frontend
+npm run build
+cd ..
+
+# Run FastAPI (FastAPI automatically serves the built React SPA at root /)
+python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
+```
+- **Unified Web Application URL:** `http://localhost:8000`
+
+### 📡 Backend API Endpoints Reference
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/health` | Service health status and records count |
+| `GET` | `/api/metadata` | Filter options (departments, wards, bed types, date bounds) |
+| `GET` | `/api/overview` | Executive operational KPIs, monthly trends, and recent admissions |
+| `GET` | `/api/patients` | Demographics, age groups, blood groups, city origins, paginated table |
+| `GET` | `/api/admissions` | Admission channels, ALOS distribution, readmission rates, paginated table |
+| `GET` | `/api/beds` | Ward-level bed capacity, type breakdown, floor grid status, table |
+| `GET` | `/api/doctors` | Doctor caseloads, top revenue doctors, experience correlation, table |
+| `GET` | `/api/treatments` | Clinical outcome distribution, procedure rankings, treatment table |
+| `GET` | `/api/billing` | Revenue trajectory, cost breakdown, insurance vs self-pay, claims table |
+
+### 🐳 Deploying to Hugging Face Spaces with Docker
+
+1. Create a new Space on [Hugging Face Spaces](https://huggingface.co/spaces) with **Docker** SDK.
+2. Push the repository to the Hugging Face Space Git remote:
+   ```bash
+   git remote add hf https://huggingface.co/spaces/<your-username>/<your-space-name>
+   git push hf main
+   ```
+3. The multi-stage `Dockerfile` will automatically:
+   - Build the React SPA bundle with Node 20.
+   - Install Python requirements.
+   - Start Uvicorn on default port `7860`.
+4. Your live dashboard will be instantly accessible globally with near-zero latency!
+
+### 🖼️ Dashboard Preview & Visual Gallery
+*(Screenshots can be captured and placed in `screenshots/` directory)*
+- `screenshots/01_executive_overview.png` — Holistic Operational KPIs & Trajectory
+- `screenshots/02_ward_bed_management.png` — Interactive Ward Floor Map & Bed Telemetry
+- `screenshots/03_clinical_outcomes.png` — Treatment Efficacy & Outcome Distributions
+- `screenshots/04_financial_revenue.png` — Revenue Cycle & Tariff Cost Breakdown
+
+### 🔮 Future Enhancements
+- Real-time WebSocket streaming for emergency ambulance triage alerts.
+- Machine learning model for 30-day readmission risk prediction based on patient comorbidities.
+- Role-Based Access Control (RBAC) authentication (Chief Medical Officer vs Billing Administrator).
 
 ---
 

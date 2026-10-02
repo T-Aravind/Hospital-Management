@@ -1,11 +1,29 @@
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
 
 .vscode/
 .idea/
 
 .env
+.env.local
+.env.*.local
 
 *.log
-
 *.bak
+
+# Frontend build and dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+node_modules/
+dist/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
