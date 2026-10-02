@@ -1,0 +1,81 @@
+Doctor_ID,Doctor_Name,Gender,Department_ID,Experience_Years,Qualification,Consultation_Fee
+DR001,Dr. Neha Menon,Female,D001,24,MD Cardiology,1483
+DR002,Dr. Karthik Singh,Male,D001,5,MD Cardiology,568
+DR003,Dr. Arjun Rao,Male,D001,25,MD Cardiology,1734
+DR004,Dr. Vivek Gupta,Male,D001,11,MD Cardiology,1128
+DR005,Dr. Karthik Kumar,Male,D001,13,MD Cardiology,1182
+DR006,Dr. Neha Reddy,Female,D001,30,MD Cardiology,1617
+DR007,Dr. Divya Menon,Female,D001,4,MD Cardiology,699
+DR008,Dr. Divya Reddy,Female,D001,28,MD Cardiology,1361
+DR009,Dr. Kavya Menon,Female,D002,21,DM Neurology,1489
+DR010,Dr. Swathi Rao,Female,D002,4,DM Neurology,605
+DR011,Dr. Priya Reddy,Female,D002,7,DM Neurology,821
+DR012,Dr. Suresh Patel,Male,D002,17,DM Neurology,999
+DR013,Dr. Priya Gupta,Female,D002,12,DM Neurology,1125
+DR014,Dr. Aditya Kumar,Male,D002,23,DM Neurology,1463
+DR015,Dr. Naveen Menon,Male,D002,27,DM Neurology,1393
+DR016,Dr. Rohan Kumar,Male,D002,4,DM Neurology,661
+DR017,Dr. Swathi Menon,Female,D003,11,MS Orthopedics,963
+DR018,Dr. Arjun Singh,Male,D003,4,MS Orthopedics,520
+DR019,Dr. Divya Menon,Female,D003,22,MS Orthopedics,1684
+DR020,Dr. Rohan Rao,Male,D003,6,MS Orthopedics,815
+DR021,Dr. Vivek Menon,Male,D003,6,MS Orthopedics,850
+DR022,Dr. Pooja Sharma,Female,D003,18,MS Orthopedics,1074
+DR023,Dr. Rohan Reddy,Male,D003,23,MS Orthopedics,1250
+DR024,Dr. Pooja Sharma,Female,D003,30,MS Orthopedics,1611
+DR025,Dr. Meera Kumar,Female,D004,23,MD Pediatrics,1670
+DR026,Dr. Karthik Reddy,Male,D004,25,MD Pediatrics,1478
+DR027,Dr. Kavya Nair,Female,D004,12,MD Pediatrics,1118
+DR028,Dr. Meera Kumar,Female,D004,17,MD Pediatrics,1193
+DR029,Dr. Aditya Menon,Male,D004,17,MD Pediatrics,924
+DR030,Dr. Neha Iyer,Female,D004,3,MD Pediatrics,517
+DR031,Dr. Sneha Gupta,Female,D004,14,MD Pediatrics,1173
+DR032,Dr. Neha Nair,Female,D004,11,MD Pediatrics,1188
+DR033,Dr. Pooja Singh,Female,D005,18,DM Oncology,1177
+DR034,Dr. Karthik Nair,Male,D005,17,DM Oncology,961
+DR035,Dr. Kavya Nair,Female,D005,14,DM Oncology,1062
+DR036,Dr. Karthik Sharma,Male,D005,29,DM Oncology,1530
+DR037,Dr. Rohan Nair,Male,D005,25,DM Oncology,1328
+DR038,Dr. Sneha Rao,Female,D005,21,DM Oncology,1725
+DR039,Dr. Priya Rao,Female,D005,24,DM Oncology,1728
+DR040,Dr. Neha Sharma,Female,D005,26,DM Oncology,1603
+DR041,Dr. Prakash Rao,Male,D006,15,MS ENT,1061
+DR042,Dr. Neha Nair,Female,D006,15,MS ENT,1056
+DR043,Dr. Swathi Kumar,Female,D006,23,MS ENT,1214
+DR044,Dr. Kavya Rao,Female,D006,20,MS ENT,1122
+DR045,Dr. Rahul Iyer,Male,D006,4,MS ENT,545
+DR046,Dr. Vikram Gupta,Male,D006,28,MS ENT,1743
+DR047,Dr. Vivek Kumar,Male,D006,4,MS ENT,601
+DR048,Dr. Vivek Gupta,Male,D006,7,MS ENT,701
+DR049,Dr. Ananya Rao,Female,D007,23,MD Dermatology,1765
+DR050,Dr. Arjun Singh,Male,D007,16,MD Dermatology,1179
+DR051,Dr. Pooja Nair,Female,D007,17,MD Dermatology,972
+DR052,Dr. Naveen Gupta,Male,D007,20,MD Dermatology,1178
+DR053,Dr. Vikram Nair,Male,D007,22,MD Dermatology,1447
+DR054,Dr. Vikram Sharma,Male,D007,9,MD Dermatology,884
+DR055,Dr. Neha Iyer,Female,D008,11,MD Emergency Medicine,1159
+DR056,Dr. Kavya Patel,Female,D008,19,MD Emergency Medicine,909
+DR057,Dr. Vikram Menon,Male,D008,17,MD Emergency Medicine,950
+DR058,Dr. Suresh Rao,Male,D008,16,MD Emergency Medicine,1124
+DR059,Dr. Vikram Gupta,Male,D008,23,MD Emergency Medicine,1233
+DR060,Dr. Suresh Reddy,Male,D008,29,MD Emergency Medicine,1709
+DR061,Dr. Arjun Nair,Male,D008,7,MD Emergency Medicine,730
+DR062,Dr. Naveen Patel,Male,D008,30,MD Emergency Medicine,1312
+DR063,Dr. Sneha Menon,Female,D008,22,MD Emergency Medicine,1752
+DR064,Dr. Divya Kumar,Female,D008,19,MD Emergency Medicine,1054
+DR065,Dr. Priya Nair,Female,D009,28,MD Critical Care,1465
+DR066,Dr. Karthik Reddy,Male,D009,29,MD Critical Care,1535
+DR067,Dr. Vikram Singh,Male,D009,5,MD Critical Care,535
+DR068,Dr. Ananya Nair,Female,D009,22,MD Critical Care,1722
+DR069,Dr. Naveen Reddy,Male,D009,26,MD Critical Care,1331
+DR070,Dr. Aditya Sharma,Male,D009,14,MD Critical Care,1190
+DR071,Dr. Meera Kumar,Female,D009,2,MD Critical Care,625
+DR072,Dr. Prakash Rao,Male,D009,3,MD Critical Care,641
+DR073,Dr. Prakash Patel,Male,D010,4,MD General Medicine,687
+DR074,Dr. Vivek Nair,Male,D010,25,MD General Medicine,1668
+DR075,Dr. Prakash Rao,Male,D010,22,MD General Medicine,1584
+DR076,Dr. Meera Reddy,Female,D010,2,MD General Medicine,664
+DR077,Dr. Neha Menon,Female,D010,5,MD General Medicine,616
+DR078,Dr. Karthik Patel,Male,D010,14,MD General Medicine,946
+DR079,Dr. Aishwarya Gupta,Female,D010,9,MD General Medicine,798
+DR080,Dr. Vikram Rao,Male,D010,11,MD General Medicine,980

@@ -1,0 +1,301 @@
+Bed_ID,Ward,Room_Number,Bed_Type,Department_ID
+B001,Ward A,R101,General,D001
+B002,Ward A,R101,General,D001
+B003,Ward A,R102,General,D001
+B004,Ward A,R102,General,D001
+B005,Ward A,R103,Semi-Private,D001
+B006,Ward A,R103,General,D001
+B007,Ward A,R104,Semi-Private,D001
+B008,Ward A,R104,General,D001
+B009,Ward A,R105,General,D001
+B010,Ward A,R105,General,D001
+B011,Ward A,R106,General,D001
+B012,Ward A,R106,General,D001
+B013,Ward A,R107,General,D001
+B014,Ward A,R107,General,D001
+B015,Ward A,R108,General,D001
+B016,Ward A,R108,General,D001
+B017,Ward A,R109,General,D001
+B018,Ward A,R109,General,D001
+B019,Ward A,R110,Semi-Private,D001
+B020,Ward A,R110,General,D001
+B021,Ward A,R111,Semi-Private,D001
+B022,Ward A,R111,General,D001
+B023,Ward A,R112,General,D001
+B024,Ward A,R112,General,D001
+B025,Ward A,R113,Private,D001
+B026,Ward A,R113,General,D001
+B027,Ward A,R114,General,D001
+B028,Ward A,R114,General,D001
+B029,Ward A,R115,Semi-Private,D001
+B030,Ward A,R115,General,D001
+B031,Ward B,R101,Semi-Private,D002
+B032,Ward B,R101,Semi-Private,D002
+B033,Ward B,R102,General,D002
+B034,Ward B,R102,Private,D002
+B035,Ward B,R103,General,D002
+B036,Ward B,R103,General,D002
+B037,Ward B,R104,Semi-Private,D002
+B038,Ward B,R104,General,D002
+B039,Ward B,R105,Semi-Private,D002
+B040,Ward B,R105,General,D002
+B041,Ward B,R106,Semi-Private,D002
+B042,Ward B,R106,General,D002
+B043,Ward B,R107,General,D002
+B044,Ward B,R107,General,D002
+B045,Ward B,R108,General,D002
+B046,Ward B,R108,General,D002
+B047,Ward B,R109,General,D002
+B048,Ward B,R109,General,D002
+B049,Ward B,R110,General,D002
+B050,Ward B,R110,General,D002
+B051,Ward B,R111,General,D002
+B052,Ward B,R111,General,D002
+B053,Ward B,R112,General,D002
+B054,Ward B,R112,Private,D002
+B055,Ward B,R113,General,D002
+B056,Ward C,R101,General,D003
+B057,Ward C,R101,General,D003
+B058,Ward C,R102,Semi-Private,D003
+B059,Ward C,R102,General,D003
+B060,Ward C,R103,General,D003
+B061,Ward C,R103,Private,D003
+B062,Ward C,R104,General,D003
+B063,Ward C,R104,General,D003
+B064,Ward C,R105,General,D003
+B065,Ward C,R105,Semi-Private,D003
+B066,Ward C,R106,Semi-Private,D003
+B067,Ward C,R106,General,D003
+B068,Ward C,R107,General,D003
+B069,Ward C,R107,General,D003
+B070,Ward C,R108,General,D003
+B071,Ward C,R108,General,D003
+B072,Ward C,R109,Private,D003
+B073,Ward C,R109,Semi-Private,D003
+B074,Ward C,R110,General,D003
+B075,Ward C,R110,General,D003
+B076,Ward C,R111,General,D003
+B077,Ward C,R111,Private,D003
+B078,Ward C,R112,General,D003
+B079,Ward C,R112,General,D003
+B080,Ward C,R113,General,D003
+B081,Ward C,R113,General,D003
+B082,Ward C,R114,General,D003
+B083,Ward C,R114,General,D003
+B084,Ward C,R115,Semi-Private,D003
+B085,Ward C,R115,General,D003
+B086,Ward C,R116,General,D003
+B087,Ward C,R116,Private,D003
+B088,Ward C,R117,General,D003
+B089,Ward C,R117,General,D003
+B090,Ward C,R118,General,D003
+B091,Ward D,R101,General,D004
+B092,Ward D,R101,General,D004
+B093,Ward D,R102,Semi-Private,D004
+B094,Ward D,R102,General,D004
+B095,Ward D,R103,General,D004
+B096,Ward D,R103,General,D004
+B097,Ward D,R104,Private,D004
+B098,Ward D,R104,General,D004
+B099,Ward D,R105,Private,D004
+B100,Ward D,R105,Semi-Private,D004
+B101,Ward D,R106,General,D004
+B102,Ward D,R106,Semi-Private,D004
+B103,Ward D,R107,General,D004
+B104,Ward D,R107,General,D004
+B105,Ward D,R108,General,D004
+B106,Ward D,R108,General,D004
+B107,Ward D,R109,General,D004
+B108,Ward D,R109,General,D004
+B109,Ward D,R110,General,D004
+B110,Ward D,R110,Private,D004
+B111,Ward D,R111,Semi-Private,D004
+B112,Ward D,R111,General,D004
+B113,Ward D,R112,General,D004
+B114,Ward D,R112,General,D004
+B115,Ward D,R113,Private,D004
+B116,Ward E,R101,Semi-Private,D005
+B117,Ward E,R101,General,D005
+B118,Ward E,R102,General,D005
+B119,Ward E,R102,General,D005
+B120,Ward E,R103,General,D005
+B121,Ward E,R103,Semi-Private,D005
+B122,Ward E,R104,General,D005
+B123,Ward E,R104,Semi-Private,D005
+B124,Ward E,R105,General,D005
+B125,Ward E,R105,General,D005
+B126,Ward E,R106,General,D005
+B127,Ward E,R106,General,D005
+B128,Ward E,R107,Private,D005
+B129,Ward E,R107,Semi-Private,D005
+B130,Ward E,R108,Semi-Private,D005
+B131,Ward E,R108,General,D005
+B132,Ward E,R109,General,D005
+B133,Ward E,R109,Semi-Private,D005
+B134,Ward E,R110,Private,D005
+B135,Ward E,R110,General,D005
+B136,Ward E,R111,General,D005
+B137,Ward E,R111,General,D005
+B138,Ward E,R112,Semi-Private,D005
+B139,Ward E,R112,Semi-Private,D005
+B140,Ward E,R113,General,D005
+B141,Ward E,R113,General,D005
+B142,Ward E,R114,General,D005
+B143,Ward E,R114,General,D005
+B144,Ward E,R115,Semi-Private,D005
+B145,Ward E,R115,General,D005
+B146,Ward F,R101,General,D006
+B147,Ward F,R101,General,D006
+B148,Ward F,R102,Semi-Private,D006
+B149,Ward F,R102,General,D006
+B150,Ward F,R103,General,D006
+B151,Ward F,R103,Private,D006
+B152,Ward F,R104,General,D006
+B153,Ward F,R104,General,D006
+B154,Ward F,R105,General,D006
+B155,Ward F,R105,General,D006
+B156,Ward F,R106,General,D006
+B157,Ward F,R106,General,D006
+B158,Ward F,R107,General,D006
+B159,Ward F,R107,General,D006
+B160,Ward F,R108,General,D006
+B161,Ward F,R108,General,D006
+B162,Ward F,R109,General,D006
+B163,Ward F,R109,General,D006
+B164,Ward F,R110,Private,D006
+B165,Ward F,R110,Semi-Private,D006
+B166,Ward G,R101,General,D007
+B167,Ward G,R101,General,D007
+B168,Ward G,R102,General,D007
+B169,Ward G,R102,General,D007
+B170,Ward G,R103,General,D007
+B171,Ward G,R103,Private,D007
+B172,Ward G,R104,General,D007
+B173,Ward G,R104,General,D007
+B174,Ward G,R105,Semi-Private,D007
+B175,Ward G,R105,Semi-Private,D007
+B176,Ward G,R106,General,D007
+B177,Ward G,R106,General,D007
+B178,Ward G,R107,General,D007
+B179,Ward G,R107,General,D007
+B180,Ward G,R108,General,D007
+B181,Emergency Ward,R101,Semi-Private,D008
+B182,Emergency Ward,R101,General,D008
+B183,Emergency Ward,R102,Private,D008
+B184,Emergency Ward,R102,General,D008
+B185,Emergency Ward,R103,General,D008
+B186,Emergency Ward,R103,General,D008
+B187,Emergency Ward,R104,Semi-Private,D008
+B188,Emergency Ward,R104,General,D008
+B189,Emergency Ward,R105,General,D008
+B190,Emergency Ward,R105,General,D008
+B191,Emergency Ward,R106,General,D008
+B192,Emergency Ward,R106,General,D008
+B193,Emergency Ward,R107,General,D008
+B194,Emergency Ward,R107,Private,D008
+B195,Emergency Ward,R108,General,D008
+B196,Emergency Ward,R108,Semi-Private,D008
+B197,Emergency Ward,R109,General,D008
+B198,Emergency Ward,R109,General,D008
+B199,Emergency Ward,R110,Private,D008
+B200,Emergency Ward,R110,Semi-Private,D008
+B201,Emergency Ward,R111,Private,D008
+B202,Emergency Ward,R111,Private,D008
+B203,Emergency Ward,R112,Semi-Private,D008
+B204,Emergency Ward,R112,General,D008
+B205,Emergency Ward,R113,General,D008
+B206,Emergency Ward,R113,General,D008
+B207,Emergency Ward,R114,General,D008
+B208,Emergency Ward,R114,General,D008
+B209,Emergency Ward,R115,General,D008
+B210,Emergency Ward,R115,Private,D008
+B211,Emergency Ward,R116,General,D008
+B212,Emergency Ward,R116,Semi-Private,D008
+B213,Emergency Ward,R117,General,D008
+B214,Emergency Ward,R117,General,D008
+B215,Emergency Ward,R118,Private,D008
+B216,Emergency Ward,R118,Private,D008
+B217,Emergency Ward,R119,General,D008
+B218,Emergency Ward,R119,Semi-Private,D008
+B219,Emergency Ward,R120,General,D008
+B220,Emergency Ward,R120,General,D008
+B221,ICU,ICU101,ICU,D009
+B222,ICU,ICU102,ICU,D009
+B223,ICU,ICU103,ICU,D009
+B224,ICU,ICU104,ICU,D009
+B225,ICU,ICU105,ICU,D009
+B226,ICU,ICU106,ICU,D009
+B227,ICU,ICU107,ICU,D009
+B228,ICU,ICU108,ICU,D009
+B229,ICU,ICU109,ICU,D009
+B230,ICU,ICU110,ICU,D009
+B231,ICU,ICU111,ICU,D009
+B232,ICU,ICU112,ICU,D009
+B233,ICU,ICU113,ICU,D009
+B234,ICU,ICU114,ICU,D009
+B235,ICU,ICU115,ICU,D009
+B236,ICU,ICU116,ICU,D009
+B237,ICU,ICU117,ICU,D009
+B238,ICU,ICU118,ICU,D009
+B239,ICU,ICU119,ICU,D009
+B240,ICU,ICU120,ICU,D009
+B241,ICU,ICU121,ICU,D009
+B242,ICU,ICU122,ICU,D009
+B243,ICU,ICU123,ICU,D009
+B244,ICU,ICU124,ICU,D009
+B245,ICU,ICU125,ICU,D009
+B246,ICU,ICU126,ICU,D009
+B247,ICU,ICU127,ICU,D009
+B248,ICU,ICU128,ICU,D009
+B249,ICU,ICU129,ICU,D009
+B250,ICU,ICU130,ICU,D009
+B251,Ward H,R101,Private,D010
+B252,Ward H,R101,General,D010
+B253,Ward H,R102,General,D010
+B254,Ward H,R102,Semi-Private,D010
+B255,Ward H,R103,General,D010
+B256,Ward H,R103,General,D010
+B257,Ward H,R104,General,D010
+B258,Ward H,R104,Semi-Private,D010
+B259,Ward H,R105,General,D010
+B260,Ward H,R105,Private,D010
+B261,Ward H,R106,General,D010
+B262,Ward H,R106,General,D010
+B263,Ward H,R107,General,D010
+B264,Ward H,R107,General,D010
+B265,Ward H,R108,General,D010
+B266,Ward H,R108,General,D010
+B267,Ward H,R109,Semi-Private,D010
+B268,Ward H,R109,General,D010
+B269,Ward H,R110,General,D010
+B270,Ward H,R110,General,D010
+B271,Ward H,R111,General,D010
+B272,Ward H,R111,General,D010
+B273,Ward H,R112,General,D010
+B274,Ward H,R112,Private,D010
+B275,Ward H,R113,General,D010
+B276,Ward H,R113,Semi-Private,D010
+B277,Ward H,R114,General,D010
+B278,Ward H,R114,General,D010
+B279,Ward H,R115,General,D010
+B280,Ward H,R115,General,D010
+B281,Ward H,R116,General,D010
+B282,Ward H,R116,Semi-Private,D010
+B283,Ward H,R117,General,D010
+B284,Ward H,R117,General,D010
+B285,Ward H,R118,Private,D010
+B286,Ward H,R118,Private,D010
+B287,Ward H,R119,General,D010
+B288,Ward H,R119,General,D010
+B289,Ward H,R120,General,D010
+B290,Ward H,R120,Private,D010
+B291,Ward H,R121,Semi-Private,D010
+B292,Ward H,R121,Semi-Private,D010
+B293,Ward H,R122,General,D010
+B294,Ward H,R122,General,D010
+B295,Ward H,R123,Semi-Private,D010
+B296,Ward H,R123,Semi-Private,D010
+B297,Ward H,R124,General,D010
+B298,Ward H,R124,Private,D010
+B299,Ward H,R125,General,D010
+B300,Ward H,R125,General,D010
