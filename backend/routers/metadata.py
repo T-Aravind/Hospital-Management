@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from backend.services.analytics_service import get_analytics_service
 
-router = APIRouter(prefix="/api", tags=["Metadata"])
+router = APIRouter(tags=["Metadata"])
 
 @router.get("/metadata")
 def get_metadata():

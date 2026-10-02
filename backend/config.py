@@ -7,10 +7,20 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Detect data directory location (either at project root /data or backend/data)
+# Detect data directory location across various execution environments (Local, Docker, Vercel Serverless)
+possible_data_dirs = [
+    BASE_DIR / "data",
+    Path.cwd() / "data",
+    Path("/var/task/data"),
+    Path(__file__).resolve().parent / "data",
+    Path.cwd().parent / "data"
+]
+
 DEFAULT_DATA_DIR = str(BASE_DIR / "data")
-if not os.path.exists(DEFAULT_DATA_DIR):
-    DEFAULT_DATA_DIR = str(Path(__file__).resolve().parent / "data")
+for p in possible_data_dirs:
+    if p.exists() and (p / "admissions.csv").exists():
+        DEFAULT_DATA_DIR = str(p.resolve())
+        break
 
 DATA_DIR = os.getenv("DATA_DIR", DEFAULT_DATA_DIR)
 FRONTEND_DIST_DIR = str(BASE_DIR / "frontend" / "dist")
@@ -35,5 +45,6 @@ CORS_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
+    "https://*.vercel.app",
     "*"
 ]

@@ -2,7 +2,7 @@ from fastapi import APIRouter, Query
 from typing import Optional
 from backend.services.analytics_service import get_analytics_service
 
-router = APIRouter(prefix="/api", tags=["Admissions"])
+router = APIRouter(tags=["Admissions"])
 
 @router.get("/admissions")
 def get_admissions(

@@ -35,15 +35,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include Routers
-app.include_router(overview.router)
-app.include_router(patients.router)
-app.include_router(admissions.router)
-app.include_router(beds.router)
-app.include_router(doctors.router)
-app.include_router(treatments.router)
-app.include_router(billing.router)
-app.include_router(metadata.router)
+# Include Routers under BOTH /api and root / to support local, Docker, and Vercel serverless rewrites seamlessly
+for router_module in [overview, patients, admissions, beds, doctors, treatments, billing, metadata]:
+    app.include_router(router_module.router, prefix="/api")
+    app.include_router(router_module.router, prefix="")
 
 @app.on_event("startup")
 def startup_event():
@@ -51,10 +46,9 @@ def startup_event():
     loader = get_data_loader()
     print(f"[Main] Data ready. Loaded {len(loader.admissions)} admissions, {len(loader.patients)} patients, {len(loader.doctors)} doctors.")
 
-# Serve Frontend SPA static assets if built
+# Serve Frontend SPA static assets if built locally/Docker
 frontend_dist = Path(FRONTEND_DIST_DIR)
 if frontend_dist.exists() and (frontend_dist / "index.html").exists():
-    # Mount assets folder
     assets_dir = frontend_dist / "assets"
     if assets_dir.exists():
         app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
@@ -62,7 +56,10 @@ if frontend_dist.exists() and (frontend_dist / "index.html").exists():
     @app.get("/{full_path:path}", include_in_schema=False)
     async def serve_spa(full_path: str):
         # Don't intercept API routes or Docs
-        if full_path.startswith("api") or full_path in ("docs", "redoc", "openapi.json"):
+        if (
+            full_path.startswith("api") 
+            or full_path in ("docs", "redoc", "openapi.json", "overview", "patients", "admissions", "beds", "doctors", "treatments", "billing", "metadata", "health")
+        ):
             return JSONResponse(status_code=404, content={"detail": "Not Found"})
         
         file_path = frontend_dist / full_path
