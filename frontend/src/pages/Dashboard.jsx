@@ -32,9 +32,9 @@ import {
 import { api } from '../api/client';
 import KPICard, { formatIndianCurrency, formatCompactNumber } from '../components/common/KPICard';
 import ChartCard from '../components/common/ChartCard';
-import FilterBar from '../components/common/FilterBar';
 import LoadingState, { SkeletonKPIGrid, SkeletonChartCard } from '../components/common/LoadingState';
 import ErrorState from '../components/common/ErrorState';
+import CustomTooltip, { chartTooltipProps } from '../components/common/CustomTooltip';
 
 const CHART_COLORS = ['#0d9488', '#2563eb', '#8b5cf6', '#f59e0b', '#f43f5e', '#06b6d4', '#10b981', '#6366f1', '#ec4899', '#64748b'];
 
@@ -224,9 +224,7 @@ export default function Dashboard({ globalFilters, setGlobalFilters, metadata, o
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
                 <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} />
                 <YAxis tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} />
-                <Tooltip 
-                  contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
-                />
+                <Tooltip {...chartTooltipProps} />
                 <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: '12px' }} />
                 <Area type="monotone" dataKey="admissions" name="Total Admissions" stroke="#0d9488" strokeWidth={2.5} fillOpacity={1} fill="url(#colorAdmissions)" />
                 <Area type="monotone" dataKey="emergencies" name="Emergency Triage" stroke="#f43f5e" strokeWidth={2} fillOpacity={1} fill="url(#colorEmergency)" />
@@ -248,7 +246,7 @@ export default function Dashboard({ globalFilters, setGlobalFilters, metadata, o
                 />
                 <Tooltip 
                   formatter={(val) => [formatIndianCurrency(val), 'Revenue']}
-                  contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                  {...chartTooltipProps}
                 />
                 <Area type="monotone" dataKey="revenue" name="Amount Paid" stroke="#2563eb" strokeWidth={2.5} fillOpacity={1} fill="url(#colorRevenue)" />
                 <Area type="monotone" dataKey="gross" name="Total Gross Billed" stroke="#8b5cf6" strokeWidth={1.5} strokeDasharray="4 4" fill="none" />
@@ -279,10 +277,7 @@ export default function Dashboard({ globalFilters, setGlobalFilters, metadata, o
                   <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip 
-                formatter={(val, name, item) => [`${val.toLocaleString()} cases (${item.payload.percentage}%)`, name]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
-              />
+              <Tooltip content={<CustomTooltip />} />
               <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
             </PieChart>
           </ResponsiveContainer>
@@ -305,7 +300,7 @@ export default function Dashboard({ globalFilters, setGlobalFilters, metadata, o
               <YAxis dataKey="department" type="category" tick={{ fontSize: 11, fill: '#334155' }} tickLine={false} width={80} />
               <Tooltip 
                 formatter={(val, name) => [val.toLocaleString(), name === 'admissions' ? 'Admissions' : name]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Bar dataKey="admissions" name="Admissions" fill="#0d9488" radius={[0, 6, 6, 0]} />
             </BarChart>
@@ -315,7 +310,7 @@ export default function Dashboard({ globalFilters, setGlobalFilters, metadata, o
         {/* Bed Capacity by Type (1 col) */}
         <ChartCard
           title="Bed Inventory by Category"
-          subtitle="Total 300 Physical Beds Allocation"
+          subtitle="Physical Beds Allocation & Occupancy"
           height="h-80"
         >
           <ResponsiveContainer width="100%" height="100%">
@@ -325,7 +320,7 @@ export default function Dashboard({ globalFilters, setGlobalFilters, metadata, o
               <YAxis tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} />
               <Tooltip 
                 formatter={(val, name) => [`${val} beds`, name]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
               <Bar dataKey="occupied" name="Occupied" fill="#2563eb" stackId="a" radius={[0, 0, 0, 0]} />
@@ -415,7 +410,7 @@ export default function Dashboard({ globalFilters, setGlobalFilters, metadata, o
               <YAxis tick={{ fontSize: 10, fill: '#64748b' }} tickLine={false} />
               <Tooltip 
                 formatter={(val, name, item) => [`${val.toLocaleString()} (${item.payload.percentage}%)`, 'Patients']}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Bar dataKey="count" name="Patients" fill="#6366f1" radius={[4, 4, 0, 0]} />
             </BarChart>

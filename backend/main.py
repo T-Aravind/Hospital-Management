@@ -15,7 +15,8 @@ from backend.routers import (
     doctors,
     treatments,
     billing,
-    metadata
+    metadata,
+    hospitals
 )
 
 app = FastAPI(
@@ -36,9 +37,10 @@ app.add_middleware(
 )
 
 # Include Routers under BOTH /api and root / to support local, Docker, and Vercel serverless rewrites seamlessly
-for router_module in [overview, patients, admissions, beds, doctors, treatments, billing, metadata]:
+for router_module in [overview, patients, admissions, beds, doctors, treatments, billing, metadata, hospitals]:
     app.include_router(router_module.router, prefix="/api")
     app.include_router(router_module.router, prefix="")
+
 
 @app.on_event("startup")
 def startup_event():

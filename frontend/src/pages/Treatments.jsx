@@ -27,7 +27,7 @@ import KPICard, { formatIndianCurrency } from '../components/common/KPICard';
 import ChartCard from '../components/common/ChartCard';
 import DataTable from '../components/common/DataTable';
 import LoadingState, { SkeletonKPIGrid, SkeletonChartCard } from '../components/common/LoadingState';
-import ErrorState from '../components/common/ErrorState';
+import CustomTooltip, { chartTooltipProps } from '../components/common/CustomTooltip';
 
 const OUTCOME_COLORS = {
   Recovered: '#10b981',
@@ -267,10 +267,7 @@ export default function Treatments({ globalFilters, metadata }) {
                   <Cell key={`cell-${entry.outcome}`} fill={OUTCOME_COLORS[entry.outcome] || '#64748b'} />
                 ))}
               </Pie>
-              <Tooltip 
-                formatter={(val, name, item) => [`${val.toLocaleString()} (${item.payload.percentage}%)`, name]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
-              />
+              <Tooltip content={<CustomTooltip />} />
               <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
             </PieChart>
           </ResponsiveContainer>
@@ -293,7 +290,7 @@ export default function Treatments({ globalFilters, metadata }) {
                   name === 'count' ? `${val.toLocaleString()} procedures (${item.payload.recovery_rate}% Recovery)` : val,
                   name === 'count' ? 'Procedures' : name
                 ]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Bar dataKey="count" name="Procedures" fill="#0d9488" radius={[0, 6, 6, 0]} />
             </BarChart>
@@ -314,9 +311,7 @@ export default function Treatments({ globalFilters, metadata }) {
               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
               <XAxis dataKey="department" tick={{ fontSize: 10, fill: '#64748b' }} angle={-30} textAnchor="end" tickLine={false} />
               <YAxis tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} />
-              <Tooltip 
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
-              />
+              <Tooltip {...chartTooltipProps} />
               <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
               <Bar dataKey="surgeries" name="Surgical" fill="#8b5cf6" stackId="a" />
               <Bar dataKey="non_surgeries" name="Non-Surgical" fill="#0d9488" stackId="a" radius={[4, 4, 0, 0]} />
@@ -337,7 +332,7 @@ export default function Treatments({ globalFilters, metadata }) {
               <YAxis tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} unit="%" />
               <Tooltip 
                 formatter={(val, name) => [`${val}%`, name]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
               <Bar dataKey="recovered" name="Recovered" fill="#10b981" />

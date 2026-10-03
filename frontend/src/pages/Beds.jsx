@@ -28,6 +28,7 @@ import ChartCard from '../components/common/ChartCard';
 import DataTable from '../components/common/DataTable';
 import LoadingState, { SkeletonKPIGrid, SkeletonChartCard } from '../components/common/LoadingState';
 import ErrorState from '../components/common/ErrorState';
+import CustomTooltip, { chartTooltipProps } from '../components/common/CustomTooltip';
 
 const BED_STATUS_COLORS = {
   Occupied: '#2563eb',
@@ -229,7 +230,7 @@ export default function Beds({ globalFilters, metadata }) {
               <YAxis tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} />
               <Tooltip 
                 formatter={(val, name) => [`${val} beds`, name]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
               <Bar dataKey="occupied" name="Occupied" fill="#2563eb" stackId="a" />
@@ -260,10 +261,7 @@ export default function Beds({ globalFilters, metadata }) {
                   <Cell key={`cell-${index}`} fill={['#0d9488', '#2563eb', '#8b5cf6', '#f43f5e'][index % 4]} />
                 ))}
               </Pie>
-              <Tooltip 
-                formatter={(val, name, item) => [`${val} beds (${item.payload.occupancy_rate}% occupied)`, name]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
-              />
+              <Tooltip content={<CustomTooltip />} />
               <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
             </PieChart>
           </ResponsiveContainer>

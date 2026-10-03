@@ -29,6 +29,7 @@ import ChartCard from '../components/common/ChartCard';
 import DataTable from '../components/common/DataTable';
 import LoadingState, { SkeletonKPIGrid, SkeletonChartCard } from '../components/common/LoadingState';
 import ErrorState from '../components/common/ErrorState';
+import CustomTooltip, { chartTooltipProps } from '../components/common/CustomTooltip';
 
 const GENDER_COLORS = ['#2563eb', '#ec4899'];
 const PALETTE = ['#0d9488', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444', '#10b981', '#6366f1', '#14b8a6'];
@@ -248,7 +249,7 @@ export default function Patients({ globalFilters, metadata }) {
               <YAxis tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} />
               <Tooltip 
                 formatter={(val, name, item) => [`${val.toLocaleString()} patients (${item.payload.percentage}%)`, 'Count']}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Bar dataKey="count" name="Patients" fill="#0d9488" radius={[6, 6, 0, 0]} />
             </BarChart>
@@ -277,10 +278,7 @@ export default function Patients({ globalFilters, metadata }) {
                   <Cell key={`cell-${index}`} fill={GENDER_COLORS[index % GENDER_COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip 
-                formatter={(val, name, item) => [`${val.toLocaleString()} (${item.payload.percentage}%)`, name]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
-              />
+              <Tooltip content={<CustomTooltip />} />
               <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '12px' }} />
             </PieChart>
           </ResponsiveContainer>
@@ -291,7 +289,7 @@ export default function Patients({ globalFilters, metadata }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* City Distribution (Horizontal Bar) */}
         <ChartCard
-          title="Top Patient Origins by City (Tamil Nadu)"
+          title="Top Patient Origins by City"
           subtitle="Primary regional outreach and catchment centers"
           height="h-72"
         >
@@ -302,7 +300,7 @@ export default function Patients({ globalFilters, metadata }) {
               <YAxis dataKey="city" type="category" tick={{ fontSize: 11, fill: '#334155' }} tickLine={false} width={80} />
               <Tooltip 
                 formatter={(val, name, item) => [`${val.toLocaleString()} patients (${item.payload.percentage}%)`, 'Volume']}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Bar dataKey="count" name="Patients" fill="#3b82f6" radius={[0, 6, 6, 0]} />
             </BarChart>
@@ -322,7 +320,7 @@ export default function Patients({ globalFilters, metadata }) {
               <YAxis tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} />
               <Tooltip 
                 formatter={(val, name, item) => [`${val.toLocaleString()} (${item.payload.percentage}%)`, 'Patients']}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Bar dataKey="count" name="Patients" fill="#f43f5e" radius={[6, 6, 0, 0]} />
             </BarChart>

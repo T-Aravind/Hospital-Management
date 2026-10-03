@@ -30,6 +30,7 @@ import ChartCard from '../components/common/ChartCard';
 import DataTable from '../components/common/DataTable';
 import LoadingState, { SkeletonKPIGrid, SkeletonChartCard } from '../components/common/LoadingState';
 import ErrorState from '../components/common/ErrorState';
+import CustomTooltip, { chartTooltipProps } from '../components/common/CustomTooltip';
 
 const COST_COLORS = ['#0d9488', '#3b82f6', '#8b5cf6'];
 const INSURANCE_COLORS = ['#2563eb', '#f59e0b'];
@@ -278,7 +279,7 @@ export default function Billing({ globalFilters, metadata }) {
               />
               <Tooltip 
                 formatter={(val, name) => [formatIndianCurrency(val), name]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
               <Area type="monotone" dataKey="collected" name="Net Collected (Amount Paid)" stroke="#0d9488" strokeWidth={2.5} fillOpacity={1} fill="url(#colorCollected)" />
@@ -309,10 +310,7 @@ export default function Billing({ globalFilters, metadata }) {
                   <Cell key={`cell-${index}`} fill={COST_COLORS[index % COST_COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip 
-                formatter={(val, name, item) => [`${formatIndianCurrency(val)} (${item.payload.percentage}%)`, name]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
-              />
+              <Tooltip content={<CustomTooltip />} />
               <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
             </PieChart>
           </ResponsiveContainer>
@@ -342,7 +340,7 @@ export default function Billing({ globalFilters, metadata }) {
                   name === 'collected' ? `${formatIndianCurrency(val)} (Avg ${formatIndianCurrency(item.payload.avg_bill)})` : formatIndianCurrency(val),
                   name === 'collected' ? 'Net Collections' : 'Gross Billed'
                 ]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Bar dataKey="collected" name="Net Collections" fill="#0d9488" radius={[0, 6, 6, 0]} />
             </BarChart>

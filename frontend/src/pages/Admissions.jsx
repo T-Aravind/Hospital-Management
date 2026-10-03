@@ -31,6 +31,7 @@ import ChartCard from '../components/common/ChartCard';
 import DataTable from '../components/common/DataTable';
 import LoadingState, { SkeletonKPIGrid, SkeletonChartCard } from '../components/common/LoadingState';
 import ErrorState from '../components/common/ErrorState';
+import CustomTooltip, { chartTooltipProps } from '../components/common/CustomTooltip';
 
 const TYPE_COLORS = ['#f43f5e', '#2563eb', '#10b981'];
 
@@ -294,9 +295,7 @@ export default function Admissions({ globalFilters, metadata }) {
               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
               <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} />
               <YAxis tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} />
-              <Tooltip 
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
-              />
+              <Tooltip {...chartTooltipProps} />
               <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
               <Bar dataKey="emergency" name="Emergency" fill="#f43f5e" stackId="a" />
               <Bar dataKey="inpatient" name="Inpatient" fill="#2563eb" stackId="a" />
@@ -327,10 +326,7 @@ export default function Admissions({ globalFilters, metadata }) {
                   <Cell key={`cell-${index}`} fill={TYPE_COLORS[index % TYPE_COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip 
-                formatter={(val, name, item) => [`${val.toLocaleString()} (${item.payload.percentage}%)`, name]}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
-              />
+              <Tooltip content={<CustomTooltip />} />
               <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
             </PieChart>
           </ResponsiveContainer>
@@ -352,7 +348,7 @@ export default function Admissions({ globalFilters, metadata }) {
               <YAxis tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} />
               <Tooltip 
                 formatter={(val, name, item) => [`${val.toLocaleString()} admissions (${item.payload.percentage}%)`, 'Admissions']}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Bar dataKey="count" name="Admissions" fill="#8b5cf6" radius={[6, 6, 0, 0]} />
             </BarChart>
@@ -371,9 +367,7 @@ export default function Admissions({ globalFilters, metadata }) {
               <XAxis dataKey="department" tick={{ fontSize: 10, fill: '#64748b' }} angle={-30} textAnchor="end" tickLine={false} />
               <YAxis yAxisId="left" tick={{ fontSize: 10, fill: '#64748b' }} tickLine={false} />
               <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 10, fill: '#f59e0b' }} tickLine={false} unit="%" />
-              <Tooltip 
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
-              />
+              <Tooltip {...chartTooltipProps} />
               <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
               <Bar yAxisId="left" dataKey="count" name="Admissions" fill="#0d9488" radius={[4, 4, 0, 0]} />
               <Bar yAxisId="right" dataKey="readmission_rate" name="Readmission Rate %" fill="#f59e0b" radius={[4, 4, 0, 0]} />

@@ -28,6 +28,7 @@ import ChartCard from '../components/common/ChartCard';
 import DataTable from '../components/common/DataTable';
 import LoadingState, { SkeletonKPIGrid, SkeletonChartCard } from '../components/common/LoadingState';
 import ErrorState from '../components/common/ErrorState';
+import CustomTooltip, { chartTooltipProps } from '../components/common/CustomTooltip';
 
 export default function Doctors({ globalFilters, metadata }) {
   const [data, setData] = useState(null);
@@ -241,7 +242,7 @@ export default function Doctors({ globalFilters, metadata }) {
               <YAxis dataKey="doctor_name" type="category" tick={{ fontSize: 10, fill: '#334155' }} tickLine={false} width={100} />
               <Tooltip 
                 formatter={(val) => [formatIndianCurrency(val), 'Revenue']}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Bar dataKey="revenue" name="Revenue" fill="#0d9488" radius={[0, 6, 6, 0]} />
             </BarChart>
@@ -261,7 +262,7 @@ export default function Doctors({ globalFilters, metadata }) {
               <YAxis tick={{ fontSize: 11, fill: '#64748b' }} tickLine={false} />
               <Tooltip 
                 formatter={(val, name, item) => [`${val} physicians (Avg ${item.payload.avg_experience}y exp)`, 'Count']}
-                contentStyle={{ backgroundColor: '#0f172a', borderRadius: '12px', border: 'none', color: '#fff', fontSize: '12px' }}
+                {...chartTooltipProps}
               />
               <Bar dataKey="count" name="Doctors" fill="#3b82f6" radius={[6, 6, 0, 0]} />
             </BarChart>

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "hosp_metro",
+    "name": "Apollo Metro Multi-Speciality Hospital",
+    "code": "AMSH-01",
+    "type": "Multi-Speciality Tertiary Care",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "beds_count": 300,
+    "departments_count": 10,
+    "source_type": "CSV",
+    "source_path": "C:\\Users\\ARAVIND\\OneDrive\\Desktop\\Hospital-Operations-Intelligence-Dashboard\\data",
+    "is_active": false,
+    "description": "Comprehensive operational, clinical, and emergency intelligence for tertiary medical center."
+  },
+  {
+    "id": "hosp_stjude",
+    "name": "St. Jude Super-Specialty Medical Institute",
+    "code": "SJMI-02",
+    "type": "Specialty Research & Oncology",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "beds_count": 180,
+    "departments_count": 8,
+    "source_type": "GENERATED",
+    "source_path": "",
+    "is_active": true,
+    "description": "High-acuity clinical research center with specialized oncology, pediatrics, and cardiology care."
+  },
+  {
+    "id": "hosp_apex",
+    "name": "Apex Trauma & Emergency Healthcare",
+    "code": "ATEH-03",
+    "type": "Trauma & Critical Care",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "beds_count": 450,
+    "departments_count": 10,
+    "source_type": "GENERATED",
+    "source_path": "",
+    "is_active": false,
+    "description": "Emergency triage focus, rapid ambulance turnaround, high-capacity ICU and surgical suites."
+  }
+]

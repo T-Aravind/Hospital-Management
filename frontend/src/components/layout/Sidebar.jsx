@@ -11,11 +11,19 @@ import {
   ChevronLeft,
   ChevronRight,
   Database,
-  CheckCircle2,
-  ShieldCheck
+  Building2,
+  Server
 } from 'lucide-react';
 
-export default function Sidebar({ activeTab, setActiveTab, collapsed, setCollapsed, dataSource = 'CSV' }) {
+export default function Sidebar({ 
+  activeTab, 
+  setActiveTab, 
+  collapsed, 
+  setCollapsed, 
+  dataSource = 'CSV',
+  activeHospital,
+  onOpenHospitalManager
+}) {
   const menuItems = [
     { id: 'overview', label: 'Executive Overview', icon: LayoutDashboard, badge: 'Live' },
     { id: 'patients', label: 'Patient Analytics', icon: Users },
@@ -25,6 +33,8 @@ export default function Sidebar({ activeTab, setActiveTab, collapsed, setCollaps
     { id: 'treatments', label: 'Treatment Analytics', icon: HeartPulse },
     { id: 'billing', label: 'Billing & Financial', icon: Receipt },
   ];
+
+  const hospitalName = activeHospital?.name || 'Hospital Intelligence';
 
   return (
     <aside 
@@ -41,10 +51,10 @@ export default function Sidebar({ activeTab, setActiveTab, collapsed, setCollaps
           {!collapsed && (
             <div className="flex flex-col min-w-0">
               <span className="font-bold text-sm tracking-tight text-white truncate">
-                Hospital Operations
+                Hospital Intelligence
               </span>
               <span className="text-[11px] font-medium text-brand-400 truncate">
-                Intelligence Dashboard
+                Universal Analytics Engine
               </span>
             </div>
           )}
@@ -58,12 +68,24 @@ export default function Sidebar({ activeTab, setActiveTab, collapsed, setCollaps
         </button>
       </div>
 
-      {/* Tagline / Subtitle */}
+      {/* Hospital Context Pill */}
       {!collapsed && (
-        <div className="px-4 py-2 bg-navy-950/40 border-b border-navy-800/50">
-          <p className="text-[11px] text-slate-400 font-normal leading-tight">
-            Data-driven insights for hospital operations
-          </p>
+        <div 
+          onClick={onOpenHospitalManager}
+          className="px-4 py-2.5 bg-navy-950/60 border-b border-navy-800/60 hover:bg-navy-800/40 cursor-pointer transition-colors group"
+          title="Click to switch hospital database or connect custom database"
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2 overflow-hidden">
+              <Building2 className="h-3.5 w-3.5 text-brand-400 shrink-0 group-hover:scale-110 transition-transform" />
+              <span className="text-[11px] font-semibold text-slate-200 truncate group-hover:text-brand-300">
+                {hospitalName}
+              </span>
+            </div>
+            <span className="text-[9px] bg-brand-500/20 text-brand-300 font-bold px-1.5 py-0.5 rounded border border-brand-500/30 shrink-0">
+              {activeHospital?.code || 'ACTIVE'}
+            </span>
+          </div>
         </div>
       )}
 
@@ -106,14 +128,18 @@ export default function Sidebar({ activeTab, setActiveTab, collapsed, setCollaps
         })}
       </nav>
 
-      {/* Footer System Status */}
+      {/* Footer System Status & Database Manager */}
       <div className="p-3 border-t border-navy-800/80 bg-navy-950/30">
         {!collapsed ? (
-          <div className="bg-navy-800/50 rounded-xl p-3 border border-navy-700/50">
+          <div 
+            onClick={onOpenHospitalManager}
+            className="bg-navy-800/50 hover:bg-navy-800/80 rounded-xl p-3 border border-navy-700/50 cursor-pointer transition-all group"
+            title="Click to manage database connection"
+          >
             <div className="flex items-center justify-between mb-1.5">
-              <div className="flex items-center space-x-1.5 text-xs text-slate-300 font-medium">
+              <div className="flex items-center space-x-1.5 text-xs text-slate-300 font-medium group-hover:text-brand-300">
                 <Database className="h-3.5 w-3.5 text-brand-400" />
-                <span>Engine: {dataSource} Store</span>
+                <span className="truncate">DB: {dataSource}</span>
               </div>
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -121,12 +147,16 @@ export default function Sidebar({ activeTab, setActiveTab, collapsed, setCollaps
               </span>
             </div>
             <div className="flex items-center justify-between text-[11px] text-slate-400">
-              <span>Status</span>
-              <span className="text-emerald-400 font-medium">Operational (15k Records)</span>
+              <span>Database Engine</span>
+              <span className="text-emerald-400 font-medium">Connected & Live</span>
             </div>
           </div>
         ) : (
-          <div className="flex justify-center" title={`Data Source: ${dataSource} (15k Records)`}>
+          <div 
+            onClick={onOpenHospitalManager}
+            className="flex justify-center cursor-pointer" 
+            title={`Active Database: ${dataSource} - Click to switch hospital`}
+          >
             <span className="flex h-3 w-3 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
